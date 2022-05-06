@@ -1,9 +1,15 @@
 package com.study.collection;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 import java.util.Map;
 
+@Getter @Setter
 public class DataCollection {
+
+    private String user_id;
 
     private String clct_nm;                 //수집명
     private String clct_period_cd;          //수집주기코드
@@ -13,9 +19,9 @@ public class DataCollection {
     private String storage_period_month;    //보관주기(개월)
 
     private String method_cd;               //수집방식(공통코드)
+    private String file_id;                 //파일 고유번호
     private String col_nm;                  //파일명
 
     private String recv_tbl_nm;             //로컬 테이블명
     private Map<String,String> mapped_cols; //매핑된 컬럼
-
 }

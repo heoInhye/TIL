@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.collection.DataCollectionMapper">
+
+    <insert id="insertIntoTable_clct_master_info" parameterType="com.study.collection.DataCollection">
+        insert into clct_master_info
+        (
+         clct_nm
+        , clct_period_cd
+        , clct_period_month
+        , clct_period_time
+        , storage_period_year
+        , storage_period_month
+        , creator_id
+        , creat_datetime
+        )
+        values
+        (
+         #{clct_nm}
+         , #{clct_period_cd}
+         , #{clct_period_month}
+         , #{clct_period_time}
+         , #{storage_period_year}
+         , #{storage_period_month}
+         , #{user_id}
+         , NOW()
+         )
+    </insert>
+
+    <select id="getFilePath" resultType="String">
+        select file_path
+        from clct_file_setup_info
+        where file_id = #{file_id}
+    </select>
+</mapper>
